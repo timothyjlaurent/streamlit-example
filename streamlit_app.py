@@ -10,6 +10,8 @@ import torchvision.transforms as tfms
 from fastai.vision import *
 from fastai.vision.core import PILImage
 import numpy as np
+import plotly.graph_objects as go
+
 
 """
 # Emotion Detector
@@ -37,8 +39,10 @@ with st.echo(code_location='below'):
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         predictions = model.predict(PILImage(image))
         f"Predicted Emotion: **{predictions[0]}**"
-        predictions
-        ar = np.transpose(predictions[2].numpy())
-        ar
-        model.dls.vocab
-        st.bar_chart(pd.DataFrame(np.transpose(predictions[2].numpy()), columns=model.dls.vocab))
+        df = pd.DataFrame([predictions[2].numpy()], columns=model.dls.vocab)
+        df
+        fig = go.Figure([go.Bar(x=list(model.dls.vocab), y=predictions[2].numpy())])
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
