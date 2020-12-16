@@ -32,4 +32,4 @@ with st.echo(code_location='below'):
     if uploaded_file:
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.')
-        model.predict(uploaded_file)
+        model.predict(image)
