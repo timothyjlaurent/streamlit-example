@@ -34,4 +34,5 @@ with st.echo(code_location='below'):
     if uploaded_file:
         image = PIL.Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.')
-        model.predict(PILImage(image))
+        predictions = model.predict(PILImage(image))
+        predictions
