@@ -33,10 +33,10 @@ with st.echo(code_location='below'):
     uploaded_file = st.file_uploader("Upload an image")
     if uploaded_file:
         image = PIL.Image.open(uploaded_file)
-        st.image(image, caption='Uploaded Image.')
+        st.image(image, caption='Uploaded Image.', use_column_width=True)
         predictions = model.predict(PILImage(image))
         f"Predicted Emotion: **{predictions[0]}**"
         predictions
         predictions[2]
         model.dls.vocab
-        st.bar_chart(pd.DataFrame(predictions[2][0], columns=model.dls.vocab))
+        st.bar_chart(pd.DataFrame(predictions[2].numpy(), columns=model.dls.vocab))
