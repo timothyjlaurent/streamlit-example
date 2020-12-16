@@ -35,4 +35,6 @@ with st.echo(code_location='below'):
         image = PIL.Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.')
         predictions = model.predict(PILImage(image))
+        f"Predicted Emotion: **{predictions[0]}**"
+        st.bar_chart(pd.DataFrame(predictions[2], columns=model.vocab))
         predictions
