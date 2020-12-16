@@ -3,10 +3,12 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-from PIL import Image
+import PIL
 
 from fastai.learner import load_learner
-
+import torchvision.transforms as tfms
+from fastai.vision import *
+from fastai.vision.core import PILImage
 
 """
 # Emotion Detector
@@ -30,6 +32,6 @@ with st.echo(code_location='below'):
     model = load_learner(model_name)
     uploaded_file = st.file_uploader("Upload an image")
     if uploaded_file:
-        image = Image.open(uploaded_file)
+        image = PIL.Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.')
-        model.predict(image)
+        model.predict(PILImage(tfms.ToTensor()(image.read())))
