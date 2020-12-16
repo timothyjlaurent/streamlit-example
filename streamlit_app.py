@@ -9,6 +9,7 @@ from fastai.learner import load_learner
 import torchvision.transforms as tfms
 from fastai.vision import *
 from fastai.vision.core import PILImage
+import numpy as np
 
 """
 # Emotion Detector
@@ -40,4 +41,4 @@ with st.echo(code_location='below'):
         ar = predictions[2].numpy()
         ar.T
         model.dls.vocab
-        st.bar_chart(pd.DataFrame(predictions[2].numpy().T, columns=model.dls.vocab))
+        st.bar_chart(pd.DataFrame(np.transpose(predictions[2].numpy()), columns=model.dls.vocab))
