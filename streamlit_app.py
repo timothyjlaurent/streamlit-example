@@ -26,7 +26,7 @@ def load_fastai_classifier(path: str):
 
 with st.echo(code_location='below'):
     model_name = st.selectbox("Choose model:", MODEL_PATHS)
-    model = load_fastai_classifier(model_name, index=0)
+    model = load_fastai_classifier(model_name)
     uploaded_file = st.file_uploader("Upload an image", type="file_type")
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.')
