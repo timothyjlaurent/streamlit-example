@@ -38,6 +38,6 @@ with st.echo(code_location='below'):
         f"Predicted Emotion: **{predictions[0]}**"
         predictions
         ar = predictions[2].numpy()
-        ar
+        ar.T
         model.dls.vocab
-        st.bar_chart(pd.DataFrame(predictions[2].numpy(), columns=model.dls.vocab))
+        st.bar_chart(pd.DataFrame(predictions[2].numpy().T, columns=model.dls.vocab))
