@@ -5,9 +5,12 @@ description = ""
 authors = ["Timothy Laurent <timothy.laurent@invitae.com>"]
 
 [tool.poetry.dependencies]
-python = ">3.6.1"
+python = ">3.6.1,<4.0"
 pandas = "^1.1.5"
 altair = "^4.1.0"
+streamlit = "^0.72.0"
+fastbook = "^0.0.16"
+Pillow = "^8.0.1"
 
 [tool.poetry.dev-dependencies]
 
