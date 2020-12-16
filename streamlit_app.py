@@ -34,4 +34,4 @@ with st.echo(code_location='below'):
     if uploaded_file:
         image = PIL.Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.')
-        model.predict(PILImage(tfms.ToTensor()(image.read())))
+        model.predict(PILImage(tfms.ToTensor()(uploaded_file.read())))
