@@ -29,6 +29,7 @@ with st.echo(code_location='below'):
     model_name = st.selectbox("Choose model:", MODEL_PATHS)
     model = load_learner(model_name)
     uploaded_file = st.file_uploader("Upload an image", type="file_type")
+    uploaded_file
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.')
     model.predict(uploaded_file)
