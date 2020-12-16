@@ -19,7 +19,7 @@ MODEL_PATHS = [
     'models/resnet-34-facial-expressions.pkl'
 ]
 
-@st.cache()
+@st.cache
 def load_fastai_classifier(path: str):
     return load_learner(path)
 
