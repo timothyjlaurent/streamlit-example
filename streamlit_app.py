@@ -21,7 +21,8 @@ MODEL_PATHS = [
 
 @st.cache
 def load_fastai_classifier(path: str):
-    return load_learner(path)
+    model = load_learner(path)
+    return model
 
 
 with st.echo(code_location='below'):
