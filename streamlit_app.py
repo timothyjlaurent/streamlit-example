@@ -37,6 +37,6 @@ with st.echo(code_location='below'):
         predictions = model.predict(PILImage(image))
         f"Predicted Emotion: **{predictions[0]}**"
         predictions
-        predictions[2]
+        predictions[2].numpy()
         model.dls.vocab
         st.bar_chart(pd.DataFrame(predictions[2].numpy(), columns=model.dls.vocab))
