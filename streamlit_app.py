@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-from PIL.Image import Image
+from PIL import Image
 
 from fastai.learner import load_learner
 
@@ -29,6 +29,6 @@ with st.echo(code_location='below'):
     model_name = st.selectbox("Choose model:", MODEL_PATHS)
     model = load_learner(model_name)
     uploaded_file = st.file_uploader("Upload an image", type="file_type")
-    image = Image(uploaded_file)
+    image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image.')
     model.predict(uploaded_file)
